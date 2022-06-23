@@ -16,8 +16,8 @@ private val LightColorPalette = lightColors(
     primary = Yellow200,
     primaryVariant = Yellow210,
     onPrimary= Black000,
-    secondary = Yellow200,
-    secondaryVariant = Yellow210,
+    secondary = gray156,
+    secondaryVariant = gray71,
     onSecondary = Black000,
     error = Purple700,
 

@@ -62,7 +62,7 @@ fun BodyContent(navController: NavController) {
            Surface(
                modifier = Modifier
                    .fillMaxWidth()
-                   .height(550.dp),
+                   .height(500.dp),
                color = MaterialTheme.colors.primarySurface
            )
            {
@@ -73,9 +73,14 @@ fun BodyContent(navController: NavController) {
                        horizontalAlignment = Alignment.CenterHorizontally,
                        verticalArrangement = Arrangement.spacedBy(8.dp)
                    ) {
+                   Text(modifier= Modifier.fillMaxWidth(),
+                       text="Usuario",
+                       style = MaterialTheme.typography.body1,
+                       textAlign= TextAlign.Start
+                   )
                    TransparentTextField(
                          textFieldValue = emailValue,
-                         textLabel = "Email",
+                         textLabel = "",
                          keyboardType = KeyboardType.Email,
                          KeyboardActions = KeyboardActions(
                              onNext={
@@ -84,9 +89,14 @@ fun BodyContent(navController: NavController) {
                          ),
                          imeAction = ImeAction.Next
                      )
+                   Text(modifier= Modifier.fillMaxWidth(),
+                       text="Contraseña",
+                       style = MaterialTheme.typography.body1,
+                       textAlign= TextAlign.Start
+                   )
                    TransparentTextField(
                        textFieldValue = passwordValue,
-                       textLabel = "Password",
+                       textLabel = "",
                        keyboardType = KeyboardType.Password,
                        KeyboardActions = KeyboardActions(
                            onDone={
@@ -120,36 +130,37 @@ fun BodyContent(navController: NavController) {
                    Text(modifier= Modifier.fillMaxWidth(),
                        text="Olvido la contraseña",
                        style = MaterialTheme.typography.body1,
-                       textAlign= TextAlign.End
+                       textAlign= TextAlign.Start
                    )
                    }
-               }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment=Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ){
-                      RoundedButton(text = "Login",
-                                    displayProgressBar= false,
-                                    onClick={
-                                        //TODO login
-                                    }
-                      )
-                      ClickableText(text= buildAnnotatedString {
-                          append("¿no tenes cuenta? Registrate")
+               Column(
+                   modifier = Modifier.fillMaxWidth(),
+                   horizontalAlignment=Alignment.CenterHorizontally,
+                   verticalArrangement = Arrangement.spacedBy(8.dp)
+               ){
+                   RoundedButton(text = "Login",
+                       displayProgressBar= false,
+                       onClick={
+                           //TODO login
+                       }
+                   )
+                   ClickableText(text= buildAnnotatedString {
+                       append("¿no tenes cuenta? Registrate")
 
-                          withStyle(
-                              style= SpanStyle(
-                                  color=MaterialTheme.colors.primary,
-                                  fontWeight= FontWeight.Bold
-                              )
-                          ){
-                              append("Sign up")
-                          }
-                      }
-                      ){
-                          //NAVIGATE TO REGISTRER SCREEN
-                    }
+                       withStyle(
+                           style= SpanStyle(
+                               color=MaterialTheme.colors.primary,
+                               fontWeight= FontWeight.Bold
+                           )
+                       ){
+                           append("Sign up")
+                       }
+                   }
+                   ){
+                       //NAVIGATE TO REGISTRER SCREEN
+                   }
+               }
+
                 }
            }
 

@@ -18,21 +18,22 @@ import androidx.navigation.NavController
 fun RegistrationScreen(navController: NavController) {
 Box(
     modifier = Modifier.fillMaxWidth()
-){
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp)
-        .verticalScroll(rememberScrollState())
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState())
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
-        ){
+        ) {
             IconButton(
                 onClick = {
                     //TODO back button
                 }
-            ){
-                Icon(
+            ) {
+                /* Icon(
                     iamgeVector = Icons.Default.ArrowBack,
                     contentDescription ="Back Icon",
                     tint = MaterialTheme.colors.primary
@@ -40,9 +41,9 @@ Box(
             }
             Text(
                 text=
-            )
+            )*/
+            }
         }
     }
-}
 
-}
+}}

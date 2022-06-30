@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.imdbappandroid.SplashScreen
 import com.example.imdbappandroid.login.view.Login
 import com.example.imdbappandroid.registration.view.Registration
+import com.example.imdbappandroid.movieslisting.view.MoviesListing
 
 @Composable
 fun AppNavigation() {
@@ -22,6 +23,9 @@ fun AppNavigation() {
         }
         composable(AppScreens.Registration.route){
             Registration(navController)
+        }
+        composable(AppScreens.MoviesListing.route){
+            MoviesListing(navController)
         }
     }
 }

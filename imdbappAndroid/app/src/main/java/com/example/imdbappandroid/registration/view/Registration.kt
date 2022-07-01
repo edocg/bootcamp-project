@@ -20,6 +20,10 @@ import com.example.imdbappandroid.shared.theme.Yellow200
 
 @Composable
 fun Registration(navController: NavController) {
+    var name by rememberSaveable {mutableStateOf("") }
+    var email by rememberSaveable {mutableStateOf("") }
+    var password by rememberSaveable {mutableStateOf("") }
+
     Column {
 
     LogoCard()
@@ -36,9 +40,9 @@ fun Registration(navController: NavController) {
                 fontSize=20.sp,
                 modifier =Modifier.padding(vertical = 8.dp)
             )
-            InputName()
-            InputEmail()
-            InputPassword()
+            InputName(name = name, onNameChange = { name = it })
+            InputEmail(email = email, onNameChange = { email = it })
+            InputPassword(password = password, onNameChange = { password = it })
             Text(
                 text ="Password must contain 8 characters",
                 fontWeight = FontWeight.Bold,
@@ -88,57 +92,48 @@ fun LogoCard(
 
 
 @Composable
-fun InputName(){
-    var name by rememberSaveable(stateSaver = TextFieldValue.Saver) {mutableStateOf(TextFieldValue("")) }
-
+fun InputName(name: String, onNameChange:(String)->Unit){
     Box(
         Modifier
             .fillMaxWidth()
             .padding(12.dp),
         Alignment.Center
-
     ){
         OutlinedTextField(
             value = name,
-            onValueChange = {name= it},
+            onValueChange = onNameChange,
             label={Text(text="name")}
         )
     }
 }
 
 @Composable
-fun InputEmail(){
-    var email by rememberSaveable(stateSaver = TextFieldValue.Saver) {mutableStateOf(TextFieldValue("")) }
-
+fun InputEmail(email: String, onNameChange:(String)->Unit){
     Box(
         Modifier
             .fillMaxWidth()
             .padding(12.dp),
         Alignment.Center
-
     ){
         OutlinedTextField(
             value = email,
-            onValueChange = {email= it},
+            onValueChange = onNameChange,
             label={Text(text="Email")}
         )
     }
 }
 
 @Composable
-fun InputPassword(){
-    var password by rememberSaveable(stateSaver = TextFieldValue.Saver) {mutableStateOf(TextFieldValue("")) }
-
+fun InputPassword(password: String, onNameChange:(String)->Unit){
     Box(
         Modifier
             .fillMaxWidth()
             .padding(12.dp),
         Alignment.Center
-
     ){
         OutlinedTextField(
             value = password,
-            onValueChange = {password= it},
+            onValueChange = onNameChange,
             label={Text(text="Password")}
         )
     }
